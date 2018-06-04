@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="simpleClientHttpRequestFactory"
+          class="org.springframework.http.client.SimpleClientHttpRequestFactory">
+        <property name="readTimeout" value="60000"/>
+        <property name="connectTimeout" value="60000"/>
+    </bean>
+
+    <bean id="BufferingClientHttpRequestFactory"
+          class="org.springframework.http.client.BufferingClientHttpRequestFactory">
+        <constructor-arg ref="simpleClientHttpRequestFactory"/>
+    </bean>
+
+    <bean id="restTemplateTool"
+          class="com.example.test.util.RestTemplateTool">
+        <constructor-arg ref="BufferingClientHttpRequestFactory"/>
+    </bean>
+
+</beans>

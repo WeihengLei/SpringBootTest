@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d %-5p [%c] [%thread] PCFOrg:${loggingcforg},PCFSpace:${envspace},AppName:${appname} %m%n</Pattern>
+        </encoder>
+    </appender>
+    <root level="${loglevel}">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>

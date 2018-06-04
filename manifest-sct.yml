@@ -1,0 +1,11 @@
+
+applications:
+ - name: test-springboot
+   host: test-springboot-v0-sct
+   path: target/test-springboot-0.0.1-Release.jar
+   memory: 2048M
+env: 
+   envspace: sct 
+   loggingcforg: wgdc01-digital-rbb-uk 
+   appname: test-springboot
+   logievel: INFO

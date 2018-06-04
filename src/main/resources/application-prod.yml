@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      database: ${dbName}
+      host: ${dbIP}
+      port: ${dbPort}
+      username: ${dbUser}
+      password: ${dbPwd}
