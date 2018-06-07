@@ -1,11 +1,10 @@
 package com.example.test.dao;
 
-import com.example.test.entity.User;
+import com.example.test.entity.security.User;
+import com.example.test.entity.shiro.UserInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
-    User findById(Integer id);
-    Long deleteById(Integer id);
+public interface UserRepository extends JpaRepository<UserInfo, Integer> {
 
-    User findUserByUsername(String username);
+    UserInfo findUserByUsername(String username);
 }

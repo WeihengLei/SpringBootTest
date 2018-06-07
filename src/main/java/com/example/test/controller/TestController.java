@@ -8,7 +8,6 @@ import com.example.test.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,7 +23,7 @@ public class TestController {
     private CacheService cacheService;
 
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     //@PreAuthorize("hasRole('USER')")
     @GetMapping("/test/{key}")//@Valid @RequestBody Message message,
     public BaseResponse test(@PathVariable("key") String key, HttpServletRequest request) throws Exception {

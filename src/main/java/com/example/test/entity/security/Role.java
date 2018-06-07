@@ -1,4 +1,4 @@
-package com.example.test.entity;
+package com.example.test.entity.security;
 
 import lombok.Data;
 

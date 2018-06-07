@@ -1,42 +1,38 @@
 package com.example.test.service.impl;
 
 import com.example.test.dao.UserRepository;
-import com.example.test.entity.User;
-import com.example.test.service.UserService;
+import com.example.test.entity.security.User;
+import com.example.test.entity.shiro.UserInfo;
+import com.example.test.service.UserInfoService;
+import com.example.test.util.HttpUriUtil;
+import com.example.test.util.RestTemplateTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserInfoService {
 
     @Resource
     private UserRepository userRepository;
 
-    @Override
-    public List<User> getUserList() {
-        return userRepository.findAll();
-    }
+    private RestTemplateTool restTemplateTool;
 
     @Override
-    public User findUserById(Integer id) {
-        return userRepository.findById(id);
+    public  UserInfo findByUsername(String username) {
+       // HttpUriUtil.test(null,null,restTemplateTool,"http://oa.gz.gtomato.com.cn:80/GTInterview/appAPI/checkIn/hrToDolist");
+
+
+        return userRepository.findUserByUsername(username);
     }
 
-    @Override
-    public void save(User user) {
-        userRepository.save(user);
-    }
+    /*@Override
+    public  void test() {
+        HttpUriUtil.test(null,null,restTemplateTool,"http://oa.gz.gtomato.com.cn:80/GTInterview/appAPI/checkIn/hrToDolist");
 
-    @Override
-    public void edit(User user) {
-        userRepository.save(user);
-    }
+    }*/
 
-    @Override
-    public void delete(Integer id) {
-        userRepository.delete(id);
-    }
 }

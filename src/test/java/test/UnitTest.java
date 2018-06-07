@@ -9,9 +9,9 @@ import com.example.test.Application;
 import com.example.test.dao.RoleRepository;
 import com.example.test.dao.UserRepository;
 import com.example.test.dao.UserRoleRepository;
-import com.example.test.entity.Role;
-import com.example.test.entity.User;
-import com.example.test.entity.UserRole;
+import com.example.test.entity.security.Role;
+import com.example.test.entity.security.User;
+import com.example.test.entity.security.UserRole;
 import com.example.test.model.TestResponse;
 import com.example.test.service.TestService;
 import org.hamcrest.Matchers;
@@ -32,8 +32,6 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 import static org.junit.Assert.assertThat;

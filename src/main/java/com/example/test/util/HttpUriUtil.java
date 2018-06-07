@@ -20,4 +20,20 @@ public class HttpUriUtil {
             throw new BusinessException(testResponse.getRespCode(), testResponse.getMessage());
         }
     }
+
+    public static void test(String header, String sdType, RestTemplateTool restTemplateTool, String url) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        //httpHeaders.add(HttpHeaders.AUTHORIZATION,header);
+        final HttpEntity httpEntity = new HttpEntity(null,httpHeaders);
+        final ResponseEntity<TestResponse> responseResponseEntity =
+                restTemplateTool.exchange(url, HttpMethod.GET,httpEntity,TestResponse.class);
+        final TestResponse testResponse = responseResponseEntity.getBody();
+        System.out.println("====="+testResponse.getRespCode());
+        System.out.println("=====2"+testResponse.getResponseBody());
+
+        if (!testResponse.getRespCode().equals("200")){
+            System.out.println("=====3"+testResponse.getResponseBody());
+            //throw new BusinessException(testResponse.getRespCode(), testResponse.getMessage());
+        }
+    }
 }

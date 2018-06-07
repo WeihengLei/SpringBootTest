@@ -1,5 +1,5 @@
-server:
-  port: 8001
+#server:
+#  port: 8080
 
 logging:
   level:
@@ -16,7 +16,10 @@ spring:
   datasource:
     dbcp2:
       initial-size: 10
-
+#用于html文件中的 shiro:hasPermission语句
+  thymeleaf:
+     cache: false
+     mode: LEGACYHTML5
 sftp:
   username:
   password:
@@ -43,6 +46,8 @@ spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
 spring.jpa.show-sql: true
 spring.thymeleaf.cache: false
 spring.jpa.hibernate.ddl-auto: update
+
+
 
 
 

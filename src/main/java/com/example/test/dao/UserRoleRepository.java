@@ -1,6 +1,6 @@
 package com.example.test.dao;
 
-import com.example.test.entity.UserRole;
+import com.example.test.entity.security.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
