@@ -1,6 +1,8 @@
 package com.example.test.service.impl;
 
+import com.example.test.dao.TestUserRepository;
 import com.example.test.dao.UserRepository;
+import com.example.test.entity.TestUser;
 import com.example.test.entity.security.User;
 import com.example.test.entity.shiro.UserInfo;
 import com.example.test.service.UserInfoService;
@@ -21,6 +23,9 @@ public class UserServiceImpl implements UserInfoService {
 
     private RestTemplateTool restTemplateTool;
 
+    @Resource
+    private TestUserRepository testUserRepository;
+
     @Override
     public  UserInfo findByUsername(String username) {
        // HttpUriUtil.test(null,null,restTemplateTool,"http://oa.gz.gtomato.com.cn:80/GTInterview/appAPI/checkIn/hrToDolist");
@@ -34,5 +39,32 @@ public class UserServiceImpl implements UserInfoService {
         HttpUriUtil.test(null,null,restTemplateTool,"http://oa.gz.gtomato.com.cn:80/GTInterview/appAPI/checkIn/hrToDolist");
 
     }*/
+
+
+    //    TestUser
+    @Override
+    public List<TestUser> getUserList() {
+        return testUserRepository.findAll();
+    }
+
+    @Override
+    public TestUser findUserById(long id) {
+        return testUserRepository.findById(id);
+    }
+
+    @Override
+    public void save(TestUser user) {
+        testUserRepository.save(user);
+    }
+
+    @Override
+    public void edit(TestUser user) {
+        testUserRepository.save(user);
+    }
+
+    @Override
+    public void delete(long id) {
+        testUserRepository.delete(id);
+    }
 
 }

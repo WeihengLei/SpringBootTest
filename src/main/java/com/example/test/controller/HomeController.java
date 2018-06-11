@@ -3,6 +3,7 @@ package com.example.test.controller;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ public class HomeController {
     }
 
     @RequestMapping("/login")
-    public String login(HttpServletRequest request, Map<String, Object> map) throws Exception{
+    public String login(HttpServletRequest request, Map<String, Object> map,Model model) throws Exception{
         System.out.println("HomeController.login()");
         // 登录失败从request中获取shiro处理的异常信息。
         // shiroLoginFailure:就是shiro异常类的全类名.
@@ -40,6 +41,7 @@ public class HomeController {
         }
         map.put("msg", msg);
         map.put("success", "login success ！！！");
+        model.addAttribute("success", "login success 2！！！");
         // 此方法不处理登录成功,由shiro进行处理
         return "/login";
     }

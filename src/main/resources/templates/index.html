@@ -87,15 +87,15 @@
         <!--<p class="bg-info" th:text="${msg.etraInfo}"></p>-->
         <h4>用户类型为ROLE_ADMIN 显示----功能介绍</h4>
     </div>
-    <h1>欢迎${user.username }光临!请选择你的操作:</h1><br>
+    <h1>欢迎${user.username }光临!请选择你的操作1:</h1><br>
     <ul>
-        <shiro:hasPermission name="userInfo:add"><li>增加</li></shiro:hasPermission>
+        <shiro:hasPermission name="userInfo:add"><li>增x加</li></shiro:hasPermission>
         <shiro:hasPermission name="userInfo:del"><li>删除</li></shiro:hasPermission>
         <shiro:hasPermission name="userInfo:update"><li>修改</li></shiro:hasPermission>
         <shiro:hasPermission name="userInfo:view"><li>查询</li></shiro:hasPermission>
     </ul>
 <h4 th:text="${success}"></h4>
-
+<h2>list:（<a href="http://localhost:8080/list">list</a>)</h2>
     <form th:action="@{/logout}" method="post">
         <input type="submit" class="btn btn-primary" value="注销"/>
     </form>
