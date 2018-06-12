@@ -29,12 +29,12 @@
             <td th:text="${user.userName}">neo</td>
             <td th:text="${user.password}">Otto</td>
             <td th:text="${user.age}">6</td>
-            <td><shiro:hasPermission name="userInfo:view"><li>
+            <td><shiro:hasPermission name="userInfo:view">
                 <a th:href="@{/toEdit(id=${user.id})}">edit</a>
-            </li></shiro:hasPermission></td>
-            <td><shiro:hasPermission name="userInfo:del"><li>
+            </shiro:hasPermission></td>
+            <td><shiro:hasPermission name="userInfo:del">
                 <a th:href="@{/delete(id=${user.id})}">delete</a>
-            </li></shiro:hasPermission></td>
+            </shiro:hasPermission></td>
         </tr>
         </tbody>
     </table>
