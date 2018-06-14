@@ -14,7 +14,6 @@ import com.example.test.entity.security.User;
 import com.example.test.entity.security.UserRole;
 import com.example.test.model.TestResponse;
 import com.example.test.service.TestService;
-import com.sun.javafx.tools.ant.DeployFXTask;
 import org.apache.commons.collections.map.HashedMap;
 import org.hamcrest.Matchers;
 import org.jasypt.encryption.StringEncryptor;
