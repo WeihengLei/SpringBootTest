@@ -11,6 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,9 +40,26 @@ public class UserController {
 //        return "redirect:/list";
 //    }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/list")
-    public String list(Model model) {
+    public String list(Model model,HttpServletRequest  request) {
+
+        Object userId = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+        System.out.println("--------userId:"
+                + userId);
+        SecurityContextImpl securityContextImpl = (SecurityContextImpl) request
+                .getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+// 登录名
+        System.out.println("--------Username:"
+                + securityContextImpl.getAuthentication().getName());
+
+        // 获得当前用户所拥有的权限
+        List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl
+                .getAuthentication().getAuthorities();
+        for (GrantedAuthority grantedAuthority : authorities) {
+            System.out.println("--------Authority:" + grantedAuthority.getAuthority());
+        }
+
         List<User> users=userService.getUserList();
         model.addAttribute("users", users);
         return "user/list";
