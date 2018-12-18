@@ -23,10 +23,13 @@
     <div sec:authorize="hasRole('ROLE_USER')"> <!-- 用户类型为ROLE_USER 显示 -->
         <!--<p class="bg-info" th:text="${msg.etraInfo}"></p>-->
         <h4>用户类型为ROLE_USER 显示----功能介绍</h4>
+
+        <a href="http://localhost:8081/test/haha">test/haha</a>
     </div>
     <div sec:authorize="hasRole('ROLE_ADMIN')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
         <!--<p class="bg-info" th:text="${msg.etraInfo}"></p>-->
         <h4>用户类型为ROLE_ADMIN 显示----功能介绍</h4>
+        <a href="http://localhost:8081/cms/list">cms/list</a>
     </div>
 
     <form th:action="@{/logout}" method="post">

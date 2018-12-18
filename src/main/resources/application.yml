@@ -1,5 +1,7 @@
 server:
-  port: 8080
+  port: 8081
+  session:
+    timeout: 60
 
 logging:
   level:
@@ -43,7 +45,6 @@ spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
 spring.jpa.show-sql: true
 spring.thymeleaf.cache: false
 spring.jpa.hibernate.ddl-auto: update
-
 
 
 

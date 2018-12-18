@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/pages/**",
                         "/plugins/**"
                 ).permitAll() //默认不拦截静态资源的url pattern （2）
-                .antMatchers("/api/**").hasRole("ADMIN")//任何ADMIN用户可以访问/api/**
+                .antMatchers("/cms/**").hasRole("ADMIN")//任何ADMIN用户可以访问/api/**
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login")// 登录url请求路径 (3)
@@ -75,6 +75,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resourcesDir/**");
+                .antMatchers("/static/**");
     }
 }

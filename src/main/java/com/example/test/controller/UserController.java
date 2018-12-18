@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/cms")
 public class UserController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
@@ -40,7 +40,7 @@ public class UserController {
 //        return "redirect:/list";
 //    }
 
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/list")
     public String list(Model model,HttpServletRequest  request) {
 
